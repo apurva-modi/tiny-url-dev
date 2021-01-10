@@ -9,6 +9,7 @@
     * `composer install`
     * Create a database say `tinyurl` and add neccessary fields in the  *.env* file.
     * `php artisan migrate` to create and populate tables
+    * `npm run dev` or `npm run prod` to compile Tailwind CSS for the project.
     * `php artisan serve` to start the app on http://localhost:8000/
 - Vue Client App
     * Make sure your Laravel Application is running on port http://localhost:8000/
