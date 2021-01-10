@@ -1,7 +1,9 @@
 ## TinyUrl - A URL shortening service
 ---
+
+:red_circle: [Live Demo - Laravel Applicastion](http://sleepy-shelf-35968.herokuapp.com/)
 ### Installation ###
-- Laravel Application
+- Laravel Application 
     * `git clone https://github.com/apurva-modi/tinyurl-dev.git projectname`
     * `cd projectname/tinyurl-dev-server`
     * `composer install`
@@ -17,19 +19,19 @@
 
 
 ### Steps followed to build a Laravel App: ###
-- Created a new Laravel project
+- I Created a new Laravel project
     > laravel new tinyurl-dev-server \
     > cd tinyurl-dev-server \
     > php artisan serve
 - Next, installed Laravel's front-end dependencies using `npm`:  [Tailwind CSS](https://tailwindcss.com/docs/guides/laravel)
 - Build the project to compiles Tailwind CSS and to use Laravel Mix in project. 
     > npm run dev
-- Created Tables 
+- Then,created Tables 
     -  created migration using 
     > php artisan make:migration create_shorten_links_table
     - Added slug and links in the Schema. Next run
     > php artisan migrate
-- Created Mode
+- Next, created Model
     - Created a new model ShortenLink using 
     > php artisan make:model ShortenLink
     - Added slug and link to the protected fillable array.
@@ -94,7 +96,7 @@
     NOTE: To combat the `CORS` restriction, a new middleware is configured to allow CORS request from certain whitelisted domain addresses. It is to be noted that while changing the client domain, the whitelist also needs to be updated. CORS was not completly disabled as it is not recommended to lose the security provided against CORS attacks.
 
 - Database
-    - Used `PostgreSql` (I personally like postgreSql and is one of the popular DB so I used it.)
+    - Used `PostgreSql` (the most advanced open source database and is available for almost every operating system with the latest stable release)
         - DB_CONNECTION=pgsql
         - DB_HOST=127.0.0.1
         - DB_PORT=5432
