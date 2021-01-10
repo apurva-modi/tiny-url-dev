@@ -49,7 +49,7 @@
 - Created View 
     > resources/views/shortenLink.blade.php
 -  Finally, Added Tailwind CSS class in the view
--  Open the following URL to enjoy the Service \
+-  Open the following URL to enjoy the Service 
    > http://localhost:8000/ \
    > http://127.0.0.1:8000/
 
@@ -86,9 +86,9 @@
         - `store`: validate the entered URL and create a slug using a `generateSlug()` method and create a new record in the DB, otherwise throw error, Success and error messages are also returned.
         - `generateSlug()`: uses a method `base_convert($random_number,int $from_base , int $to_base)` that returns a number converted to a  `to_base`.
             - `$random_number`: uses a  `rand ( int $min , int $max )` and returns a random interger.
-        > Alternatively the follwing method can also be used to generate a slug. \
-        > The `Str::slug`  method generates a URL friendly "slug" from the given string. \
-        > The `Str::random` method generates a random string of the specified length.
+        * Alternatively the follwing method can also be used to generate a slug. 
+           > The `Str::slug`  method generates a URL friendly "slug" from the given string (I used this for the Live Demo). 
+           > The `Str::random` method generates a random string of the specified length.
     - Route::post('/api/generate-link/', [ShortenLinkController::class,'apiStore'])
         - This route was used to handle the `post` request made from the client App and return response back in `JSON`.
     - `ShortenLinkRedirectController`:
