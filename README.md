@@ -1,7 +1,7 @@
 ## TinyUrl - A URL shortening service
 ---
 
-:red_circle: [Live Demo - Laravel Applicastion](http://sleepy-shelf-35968.herokuapp.com/)
+:red_circle: [Live Demo - Laravel Applicastion](http://tiny-u-rl.herokuapp.com/)
 ### Installation ###
 - Laravel Application 
     * `git clone https://github.com/apurva-modi/tinyurl-dev.git projectname`
