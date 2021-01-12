@@ -21,59 +21,56 @@
 
 ### Steps followed to build a Laravel App: ###
 - I Created a new Laravel project
-    > laravel new tinyurl-dev-server \
-    > cd tinyurl-dev-server \
-    > php artisan serve
+   ```
+   laravel new tinyurl-dev-server 
+   cd tinyurl-dev-server 
+   php artisan serve
+    ```
 - Next, installed Laravel's front-end dependencies using `npm`:  [Tailwind CSS](https://tailwindcss.com/docs/guides/laravel)
 - Build the project to compiles Tailwind CSS and to use Laravel Mix in project. 
-    > npm run dev
+   ```
+   npm run dev
+   ```
 - Then,created Tables 
     -  created migration using 
-    > php artisan make:migration create_shorten_links_table
+      ```
+      php artisan make:migration create_shorten_links_table
+      ```
     - Added slug and links in the Schema. Next run
-    > php artisan migrate
+       ```
+       php artisan migrate
+       ```
 - Next, created Model
     - Created a new model ShortenLink using 
-    > php artisan make:model ShortenLink
+      ```
+      php artisan make:model ShortenLink
+      ```
     - Added slug and link to the protected fillable array.
 - Created Routes to serve the requests in `routes/web.php`
-    > Route::get('/', [ShortenLinkController::class,'index'])->name('home'); \
-    > Route::post('/', [ShortenLinkController::class,'store']); \
-    > Route::post('/api/generate-link/', [ShortenLinkController::class,'apiStore']); \
-    > Route::get('{slug}', [ShortenLinkRedirectController::class,'shortenLink'])->name('redirectURL');
+   ```
+   Route::get('/', [ShortenLinkController::class,'index'])->name('home'); 
+   Route::post('/', [ShortenLinkController::class,'store']); 
+   Route::post('/api/generate-link/', [ShortenLinkController::class,'apiStore']); 
+   Route::get('{slug}', [ShortenLinkRedirectController::class,'shortenLink'])->name('redirectURL');
+    ```
 - Created Controller using 
-    > php artisan make:controller ShortenLinkController \
-    > php artisan make:controller ShortenLinkRedirectController
+   ```
+   php artisan make:controller ShortenLinkController
+   php artisan make:controller ShortenLinkRedirectController
+   ```
     - Added index(), store(Request $request), apiStore(Request $request) and generateSlug() method for ShortenLinkController,
     - Added shortenLink($slug) method for ShortenLinkRedirectController.
 - Created View 
-    > resources/views/shortenLink.blade.php
+   ```
+   resources/views/shortenLink.blade.php
+   ```
 -  Finally, Added Tailwind CSS class in the view
 -  Open the following URL to enjoy the Service 
-   > http://localhost:8000/ \
-   > http://127.0.0.1:8000/
-
-### Different scenarios: ###
-- This is the main/landing page.
-![alt text](./screenshots/mainpage.png "Empty Input field")
-
-- If input field is empty => `validate` => display the error message to the user.
-![alt text](./screenshots/emptyinput.png "Empty Input field")
-
-- If input field is not a url => `validate` => display the error message to the user for the same.
-![alt text](./screenshots/invalidurl.png "Invalid URL/TinyURL not created")
-
-- If any slug which is not in the DB was append to the APP_URL => show the message TinyUrl DOES NOT EXIST!
-![alt text](./screenshots/slugnotindb.png "Slug does not exist")
-
-- If a URL not in DB and is valid=> create a slug and add the slug and the enterend URL in DB and show all the created URL to the user.
-![alt text](./screenshots/success.png "Valid URL - TinyURL created")
-
-- If a entered URL already in DB => show the message that its already created.
-![alt text](./screenshots/already.png "Empty Input field")
-
-
-
+   ```
+   http://localhost:8000/ 
+   http://127.0.0.1:8000/
+```
+### Additional information: ###
 - Models 
     - `slug`: a random number.
     - `link`: the entered URL/link by the user.
@@ -109,15 +106,19 @@
 
 ### Steps followed to build a Vue App: ###
 - Created a new Vue Project
-    > npm install -g @vue/cli \
-    > vue upgrade --next \
-    > vue create tinyurl-dev-client \
-    > cd tinyurl-dev-client \
-    > npm run serve 
+   ```
+    npm install -g @vue/cli 
+    vue upgrade --next 
+    vue create tinyurl-dev-client 
+    cd tinyurl-dev-client 
+    npm run serve 
+    ```
 Project runs at: `http://localhost:8080/`
 
 - Added essential libraries
-    > npm install --save axios vue-axios
+    ```
+    npm install --save axios vue-axios
+    ```
 
 - Created a New component `UrlShortner.vue`
     - Used Axios to `POST` the request at this api => `http://127.0.0.1:8000/api/generate-link/`.
