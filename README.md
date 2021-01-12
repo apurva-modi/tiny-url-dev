@@ -4,8 +4,8 @@
 :red_circle: [Live Demo - Laravel Application](http://tiny-u-rl.herokuapp.com/)
 ### Installation ###
 - Laravel Application 
-    * `git clone https://github.com/apurva-modi/tinyurl-dev.git projectname`
-    * `cd projectname/tinyurl-dev-server`
+    * `git clone https://github.com/apurva-modi/tiny-url-dev.git projectname`
+    * `cd projectname/tiny-url-dev-server`
     * `composer install`
     * Create a database say `tinyurl` and add neccessary fields in the  *.env* file.
     * `php artisan migrate` to create and populate tables
@@ -13,7 +13,7 @@
     * `php artisan serve` to start the app on http://localhost:8000/
 - Vue Client App
     * Make sure your Laravel Application is running on port http://localhost:8000/
-    * Open another terminal and `cd projectname/tinyurl-dev-client`
+    * Open another terminal and `cd projectname/tiny-url-dev-client`
     * `npm install` to setup project.
     * `npm run serve` compiles and hot-reloads for development and to start the client app on http://localhost:8080/
 
