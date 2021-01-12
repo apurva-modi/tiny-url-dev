@@ -69,10 +69,10 @@
    ```
    http://localhost:8000/ 
    http://127.0.0.1:8000/
-```
-### Additional information: ###
+   ```
+#### Additional information: ####
 - Models 
-    - `slug`: a random number.
+    - `slug`: a random number/string.
     - `link`: the entered URL/link by the user.
 - View
     - `shortenLink.blade.php`: Contains all the HTML with @csrf token, @blade directive for error handling and uses `Tailwind CSS` for styling.
@@ -83,11 +83,13 @@
         - `store`: validate the entered URL and create a slug using a `generateSlug()` method and create a new record in the DB, otherwise throw error, Success and error messages are also returned.
         - `generateSlug()`: uses a method `base_convert($random_number,int $from_base , int $to_base)` that returns a number converted to a  `to_base`.
             - `$random_number`: uses a  `rand ( int $min , int $max )` and returns a random interger.
-        * Alternatively the follwing method can also be used to generate a slug. 
-           > The `Str::slug`  method generates a URL friendly "slug" from the given string (I used this for the Live Demo). 
-           > The `Str::random` method generates a random string of the specified length.
-    - Route::post('/api/generate-link/', [ShortenLinkController::class,'apiStore'])
-        - This route was used to handle the `post` request made from the client App and return response back in `JSON`.
+        * Alternatively the follwing method can also be used to generate a slug.
+            ```
+            The `Str::slug`  method generates a URL friendly "slug" from the given string (I used this for the Live Demo). 
+            The `Str::random` method generates a random string of the specified length.
+           ```
+       - `Route::post('/api/generate-link/', [ShortenLinkController::class,'apiStore'])`
+           - This route was used to handle the `post` request made from the client App and return response back in `JSON`.
     - `ShortenLinkRedirectController`:
         - finds the Link using the slug value stored in the database and helps to redirect to the orignal/stored URL.
     
@@ -95,12 +97,14 @@
 
 - Database
     - Used `PostgreSql` (the most advanced open source database and is available for almost every operating system with the latest stable release)
-        - DB_CONNECTION=pgsql
-        - DB_HOST=127.0.0.1
-        - DB_PORT=5432
-        - DB_DATABASE=__CREATE A DATABASE(tinyurl)__
-        - DB_USERNAME=__ENTER YOUR USERNAME(apurvamodi)__
-        - DB_PASSWORD=__ENTER YOUR PASSWORD(***)__
+        ```
+        DB_CONNECTION=pgsql
+        DB_HOST=127.0.0.1
+        DB_PORT=5432
+        DB_DATABASE=__CREATE A DATABASE(tinyurl)__
+        DB_USERNAME=__ENTER YOUR USERNAME(apurvamodi)__
+        DB_PASSWORD=__ENTER YOUR PASSWORD(***)__
+        ```
     - Alternately `SQLite` (which is a in-memory database) can be prefered if memory is the contraint.
 
 
@@ -123,23 +127,24 @@ Project runs at: `http://localhost:8080/`
 - Created a New component `UrlShortner.vue`
     - Used Axios to `POST` the request at this api => `http://127.0.0.1:8000/api/generate-link/`.
 - Lastly Used `Tailwind` CSS inside the `UrlShortner`.
-
+   
 ### Different scenarios: ###
 
 - This is the main/landing page.
-![alt text](./screenshots/vuemain.png "Vue's main Page")
+   ![alt text](./screenshots/vuemain.png "Vue's main Page")
 
 - If input field is empty.
-![alt text](./screenshots/vueempty.png "Empty Input field")
+   ![alt text](./screenshots/vueempty.png "Empty Input field")
 
 - If input field is not a url.
-![alt text](./screenshots/vueinvalidurl.png "Invalid URL/TinyURL not created")
+   ![alt text](./screenshots/vueinvalidurl.png "Invalid URL/TinyURL not created")
 
 - If a entered URL already in shorten or in DB.
-![alt text](./screenshots/vuealready.png "Empty Input field")
+   ![alt text](./screenshots/vuealready.png "Empty Input field")
 
 - If a URL not in DB and is valid.
-![alt text](./screenshots/vuesuccess.png "Valid URL - TinyURL created")
+   ![alt text](./screenshots/vuesuccess.png "Valid URL - TinyURL created")
+   
 
 Note:
     `http://localhost:8000/` is serving the larvel Application. 
